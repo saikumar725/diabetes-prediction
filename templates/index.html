@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Diabetes Prediction</title>
+        <link rel="shortcut icon" href="{{ url_for('static', filename='diabetes-favicon.ico') }}">
+       
+        <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <!-- Website Title -->
+    	<div class="container">
+            <h2 class='container-heading'><span class="heading_font">Diabetes Prediction</span></h2>
+            <div class='description'>
+    			
+    		</div>
+    	</div>
+
+        <!-- Text Area -->
+    	<div class="ml-container">
+    		<form action="{{ url_for('predict') }}" method="POST">
+                <input  type="text" name="pregnancies" placeholder="Number of Pregnancies "><br>
+                <input  type="text" name="glucose" placeholder="Glucose "><br>
+                <input  type="text" name="bloodpressure" placeholder="Blood Pressure "><br>
+                <input  type="text" name="skinthickness" placeholder="Skin Thickness "><br>
+                <input  type="text" name="insulin" placeholder="Insulin Level "><br>
+                <input type="text" name="bmi" placeholder="Body Mass Index "><br>
+                <input  type="text" name="dpf" placeholder="Diabetes Pedigree Function "><br>
+                <input  type="text" name="age" placeholder="Age (years) "><br>
+
+        		<input type="submit" class="my-cta-button" value="Predict"><br><br>
+        		
+        		
+        		
+        		 {% if prediction==1 %}
+Prediction: Oops! You have DIABETES.
+{% elif prediction==0 %}
+Prediction: Great! You DON'T have diabetes.
+ {% endif %}
+        	</form>
+    	</div>
+<br>
+        <!-- Footer -->
+      
+ <style>
+body { 
+	width: 100%;
+	height:100%;
+	font-family: 'Helvetica';
+	background-color: coral;
+	color: #fff;
+	font-size: 24px;
+	text-align:center;
+	letter-spacing:1.4px;
+
+}
+        
+</style>
+
+    </body>
+</html>
